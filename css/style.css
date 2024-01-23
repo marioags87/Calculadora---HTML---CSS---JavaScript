@@ -1,0 +1,50 @@
+#visorCalculadora {
+    font-size: 24px;
+    width: 100%;
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.areaCalculadora {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.row div {
+    padding: 0;
+}
+
+.row div button {
+    width: 100%;
+}
+
+#btnD20:hover {
+    background-color: red;
+    color: white;
+    opacity: 100%;
+}
+
+#btnD20 {
+    border-color: red;
+    background-color: bodyColor;
+    color: red;
+    opacity: 50%;
+}
+
+#btnLimpar:hover {
+    background-color: orange;
+    color: white;
+    opacity: 100%;
+}
+
+#btnLimpar {
+    border-color: orange;
+    background-color: bodyColor;
+    color: orange;
+    opacity: 50%;
+}
+
+body {
+    background-color: #1b1b1b;
+}
