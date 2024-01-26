@@ -1,19 +1,16 @@
 //Variável global que vai exibir o resultado no visor
-//A variável var tem valor fixo
-//var resultado = 15
-//A variável let pode mudar o valor
 let visor = document.getElementById("visorCalculadora");
 
 //Objeto que guarda os valores e funções dos cálculos
 let calculo = {
     valorSalvo: null,
-    functionCalculo: null,
-};
+    functionCalculo: null
+}
 
 //Atribuir eventos aos botões ao carregar a página
-window.addEventListener("load", function () {
+window.addEventListener("load", function() {
     atribuirEventos();
-});
+})
 
 function atribuirEventos() {
     //Atribuir eventos aos números
@@ -123,4 +120,4 @@ function clicarVirgula(){
 
 function rolarD20(){
     
-}​
+}
