@@ -43,7 +43,7 @@ function inserirNumero(event) {
         visor.value = event.target.textContent;
     }
     else{
-        if(visor.value == 0){
+        if(visor.value === 0){
             visor.value = event.target.textContent;
         }
         else{
@@ -115,9 +115,16 @@ function limparDados(){
 }
 
 function clicarVirgula(){
-
+    if(visor.value === "" || isNaN(visor.value)){
+        visor.value = "0."
+    }
+    else if(!visor.value.includes("."))
+    {
+        visor.value = visor.value + "."
+    }
 }
 
 function rolarD20(){
-    
+    let random = Math.floor(Math.random() * (20) + 1)
+    visor.value = random
 }
