@@ -28,12 +28,16 @@ function atribuirEventos() {
     //Atribuir eventos aos demais botões
     document.getElementById("btnD20").addEventListener("click", event => rolarD20());
     document.getElementById("btnLimpar").addEventListener("click", event => limparDados());
+    document.getElementById("btnApagar").addEventListener("click", event => apagarDado());
     document.getElementById("btnDividir").addEventListener("click", event => clicarOperador("/"));
     document.getElementById("btnMultiplicar").addEventListener("click", event => clicarOperador("x"));
     document.getElementById("btnSoma").addEventListener("click", event => clicarOperador("+"));
     document.getElementById("btnSubtrair").addEventListener("click", event => clicarOperador("-"));
     document.getElementById("btnVirgula").addEventListener("click", event => clicarVirgula());
     document.getElementById("btnResultado").addEventListener("click", event => clicarResultado());
+
+    //Atribuir eventos ao teclado
+    document.addEventListener("keydown", event => keyCodePress(event), false)
 }
 
 function inserirNumero(event) {
@@ -48,6 +52,22 @@ function inserirNumero(event) {
         }
         else{
             visor.value += event.target.textContent;
+        }
+    }
+}
+
+function inserirNumeroKey(number) {
+    //Se o valor não for um número, substitui pelo valor do botão
+    if(isNaN(visor.value))
+    {
+        visor.value = number;
+    }
+    else{
+        if(visor.value === 0){
+            visor.value = number;
+        }
+        else{
+            visor.value += number;
         }
     }
 }
@@ -114,6 +134,14 @@ function limparDados(){
     calculo.functionCalculo = null
 }
 
+function apagarDado(){
+    let resultado = visor.value
+    if(resultado.length > 0){
+        resultado = resultado.substring(0, resultado.length-1)
+        visor.value = resultado
+    }
+}
+
 function clicarVirgula(){
     if(visor.value === "" || isNaN(visor.value)){
         visor.value = "0."
@@ -127,4 +155,34 @@ function clicarVirgula(){
 function rolarD20(){
     let random = Math.floor(Math.random() * (20) + 1)
     visor.value = random
+}
+
+function keyCodePress(event){
+    let key = event.key
+    switch(key){
+        case ",": clicarVirgula(); break;
+        case ".": clicarVirgula(); break;
+        case "/": clicarOperador("/"); break;
+        case "+": clicarOperador("+"); break;
+        case "-": clicarOperador("-"); break;
+        case "*": clicarOperador("*"); break;
+        case "=": clicarResultado(); break;
+        case "Enter": clicarResultado(); break;
+        case "Backspace": apagarDado(); break;
+        case "Delete": apagarDado(); break;
+        case "0": inserirNumeroKey(0); break;
+        case "1": inserirNumeroKey(1); break;
+        case "2": inserirNumeroKey(2); break;
+        case "3": inserirNumeroKey(3); break;
+        case "4": inserirNumeroKey(4); break;
+        case "5": inserirNumeroKey(5); break;
+        case "6": inserirNumeroKey(6); break;
+        case "7": inserirNumeroKey(7); break;
+        case "8": inserirNumeroKey(8); break;
+        case "9": inserirNumeroKey(9); break;
+        case "d": rolarD20(); break;
+        case "D": rolarD20(); break;
+        case "l": limparDados(); break;
+        case "L": limparDados();
+    }
 }

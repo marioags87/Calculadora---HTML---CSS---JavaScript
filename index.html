@@ -10,11 +10,14 @@
 <body>
     <div class="container areaCalculadora">
         <div class="row"> <!--Linha da Tabela-->
-            <input id="visorCalculadora" type="text" value="" />
+            <input id="visorCalculadora" type="text" value="" readonly/>
         </div>
         <div class="row justify-content-end">
             <div class="col-3">
                 <button id="btnD20" type="button" class="btn btn-outline-danger">Rolar D20</button>
+            </div>
+            <div class="col-3">
+                <button id="btnApagar" type="button" class="btn btn-outline-warning">Apagar</button>
             </div>
             <div class="col-3">
                 <button id="btnLimpar" type="button" class="btn btn-outline-warning">Limpar</button>
@@ -31,7 +34,7 @@
                 <button id="btnValor9" type="button" class="btn btn-outline-info">9</button>
             </div>
             <div class="col-3">
-                <button id="btnDividir" type="button" class="btn btn-outline-success">/</button>
+                <button id="btnDividir" type="button" class="btn btn-outline-success">&#247</button>
             </div>
         </div>
         <div class="row">
